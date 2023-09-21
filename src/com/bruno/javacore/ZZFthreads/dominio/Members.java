@@ -7,7 +7,7 @@ public class Members {
     private final Queue<String> emails = new ArrayBlockingQueue<>(10);
     private boolean open = true;
 
-    public boolean isOpen() {
+    public boolean isOpen()  {
         return open;
     }
 
@@ -29,7 +29,7 @@ public class Members {
     public String retrieveEmail() throws InterruptedException {
         System.out.println(Thread.currentThread().getName() + " checking if there are emails");
         synchronized (this.emails) {
-            while (this.emails.size() == 0) {
+            while (this.emails.isEmpty()) {
                 if (!open) return null;
                 System.out.println(Thread.currentThread().getName() + " Não tem email disponível na lista, entrando em modod de espera");
                 this.emails.wait();
@@ -43,5 +43,8 @@ public class Members {
         synchronized (this.emails) {
             System.out.println(Thread.currentThread().getName() + " Notificando todo mundo que não estamos mais pegando emails");
         }
+    }
+    public void metodoTal(){
+        System.out.println("Mas é claro que o Sol vai voltar amanhã, mais uma vez, eu sei");
     }
 }
