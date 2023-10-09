@@ -25,7 +25,7 @@ public class CompletableFutureTest03 {
         });
         List<CompletableFuture<Double>> completableFutures = stores.stream()
                 .map(s -> CompletableFuture.supplyAsync(() -> storeService.getPriceSync(s), executor))
-                .collect(Collectors.toList());
+                .toList();
 
         List<Double> prices = completableFutures.stream()
                 .map(CompletableFuture::join)
