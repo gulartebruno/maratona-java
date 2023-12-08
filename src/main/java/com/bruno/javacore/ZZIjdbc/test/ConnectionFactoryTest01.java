@@ -15,11 +15,13 @@ public class ConnectionFactoryTest01 {
     public static void main(String[] args) throws SQLException {
         Producer producer = Producer.builder().name("NHK").build();
         Producer producerToUpdate = Producer.builder().id(1).name("MADHOUSE").build();
-//        ProducerService.save(producer);
+        //ProducerService.save(producer);
         //ProducerService.update(producerToUpdate);
         //List<Producer> producers = ProducerService.findAll();
-        // List<Producer> producers = ProducerService.findByName("Mad");
-//        log.info("Producers found '{}'",producers);
-        ProducerService.showProducerMetaData();
+        //List<Producer> producers = ProducerService.findByName("Mad");
+//      //log.info("Producers found '{}'",producers);
+        //ProducerService.showProducerMetaData();
+        //ProducerService.showDriverMetaData();
+        ProducerService.showTypeScrollWorking();
     }
 }
